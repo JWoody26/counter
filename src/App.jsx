@@ -1,9 +1,11 @@
-import { useRef, useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 
 
 
 function App(){
+  let number  = 0;
+  const [counter, setCounter] = useState(number);
 
   const [initalForm, submitForm] = useState(["Email","First Name","Last Name",]);
 
@@ -13,7 +15,7 @@ function App(){
 
   return (
     <div className="App">
-      
+
 
 <h1>Form</h1>
       <label htmlFor="email">Your email address</label>
@@ -42,9 +44,19 @@ function App(){
         Your first name : {initalForm[1]} <br />
         Your last name : {initalForm[2]}
       </div>
+      
+      <br />
 
+  <h1> Counter </h1>
+      <button onClick={function(){setCounter(function(prevCounter){
+       return prevCounter - 1
+      })}}> - </button>
+      <h1>{counter}</h1>
+      <button onClick={function(){setCounter(function(prevCounter){
+       return prevCounter + 1
+      })}}> + </button>
     </div>
-  );
+  )
 
 }
 
